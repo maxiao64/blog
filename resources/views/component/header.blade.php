@@ -54,30 +54,20 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="http://localhost:4000/">Configurable Title</a>
+            <a class="navbar-brand" href="{{ route('/') }}">MMMX</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="http://localhost:4000/">
-                                Home
+                        <a href="{{ route('/') }}">
+                                首页
                         </a>
                     </li>
                     <li>
-                        <a href="http://localhost:4000/archives">
-                                Archives
-                        </a>
-                    </li>
-                    <li>
-                        <a href="http://localhost:4000/tags">
-                                Tags
-                        </a>
-                    </li>
-                    <li>
-                        <a href="http://localhost:4000/categories">   
-                                Categories
+                        <a href="{{ route('post.categories') }}">   
+                                分类
                         </a>
                     </li>
                     <li>
@@ -100,16 +90,3 @@
     <!-- Main Content -->
     <!-- Page Header -->
 <!-- Set your background image for this header in the theme's configuration: index_cover -->
-<header class="intro-header" style="background-image: url(&#39;/img/home-bg.jpg&#39;)">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading">
-                    <h1>maxiao's blog</h1>
-                    <hr class="small">
-                    <span class="subheading">watch and learn</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</header>

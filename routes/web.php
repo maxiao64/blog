@@ -13,9 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', 'HomeController@index')->name('/');
+Route::get('/post/{id}', 'PostController@show')->name('post.show');
+Route::get('/categories', 'PostController@categories')->name('post.categories');
+Route::get('/category/{name}/{id}', 'PostController@categoryPost')->name('post.categoryPost');
 
 Route::get('login/github', 'LoginController@redirectToProvider');
 Route::get('login/github/callback', 'LoginController@handleProviderCallback');
