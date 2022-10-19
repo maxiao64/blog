@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Model\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use Socialite;
 
@@ -25,14 +27,17 @@ class LoginController extends Controller
      */
     public function handleProviderCallback()
     {
-        $user = Socialite::driver('github')->user();
+        $user = Socialite::driver('github')->stateless()->user();
 
-        $user->getId();
-        $user->getNickname();
-        $user->getName();
-        $user->getEmail();
-        $user->getAvatar();
         Log::info('GITHUB_INFO', [$user]);
+        $loginUser = User::query()->updateOrCreate([
+            'auth_type' => User::AUTH_TYPE_GITHUB,
+            'auth_id'   => $id,
+        ],[
+            'username' => $user->getName(),
+            'avatar'   => $user->getAvatar(),
+        ]);
+        Auth::login($loginUser);
         return redirect('/');
     }
 }

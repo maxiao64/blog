@@ -71,9 +71,14 @@
                         </a>
                     </li>
                     <li>
-                        <a href="{{ route('login.github')}}">   
-                               登录
-                        </a>
+                        @if(Auth::user())
+                            <span>{{Auth::user()->name}}</span>
+                        @else 
+                            <a href="{{ route('login.github')}}">   
+                                登录
+                            </a>
+                        @endif
+                        
                     </li>
                     {{-- <li>
                         <a target="_blank" rel="noopener" href="https://github.com/klugjo/hexo-theme-clean-blog">    
