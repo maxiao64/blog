@@ -12,7 +12,7 @@ class HomeController extends Controller
         $posts = Post::query()
             ->with('category')
             ->orderBy('id', 'desc')->simplePaginate(1);
-        $title = 'slogn';
+        $title = '及时行乐';
         $subTitle = 'ss';
         return view('posts.list', compact('posts', 'title','subTitle'));
     }

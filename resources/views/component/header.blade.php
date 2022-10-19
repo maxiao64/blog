@@ -71,7 +71,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="http://localhost/login/github">   
+                        <a href="{{ route('login.github')}}">   
                                登录
                         </a>
                     </li>

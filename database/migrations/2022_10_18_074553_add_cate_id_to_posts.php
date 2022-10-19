@@ -14,7 +14,7 @@ class AddCateIdToPosts extends Migration
     public function up()
     {
         Schema::table('posts', function (Blueprint $table) {
-            $table->string('care_id')->after('body');
+            $table->string('cate_id')->after('body');
         });
     }
 
@@ -26,7 +26,7 @@ class AddCateIdToPosts extends Migration
     public function down()
     {
         Schema::table('posts', function (Blueprint $table) {
-            $table->dropColumn('care_id');
+            $table->dropColumn('cate_id');
         });
     }
 }

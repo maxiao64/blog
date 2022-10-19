@@ -615,3 +615,16 @@ pre .clojure .title {
 pre .deletion {
   color: #dc322f;
 }
+
+.awesmoe-title {
+  font-size: 100px; /* 文字大点，效果更明显 */
+  font-weight: bold; /* 文字粗点，这样效果更明显 */
+  color: transparent; /* 设置文字填充颜色为透明，这样可以把背景显示出来 */
+  -webkit-text-fill-color: transparent; /* 使用一个非标准的方法覆盖文字填充颜色，以防color被其他代码覆盖 */
+  text-shadow: 6px -6px #cca4e3, 10px -10px #edd1d8; /* 设置顶层黑色投影和中层白色投影 */
+  /* background-image: linear-gradient(135deg, #fff 0%, #fff 25%, #000 25%, #000 50%, #fff 50%, #fff 75%, #000 75%, #000 100%);   使用 #fff 和 #000 画出条纹效果，并倾斜135度 */
+  background-size: 6px 6px; /* 背景图大小，控制斑马纹的粗细 */
+  background-repeat: repeat; /* 不断重复渲染背景图 */
+  -webkit-background-clip: text; /* 将背景渲染到文本中（兼容性写法） */
+  background-clip: text; /* 将背景渲染到文本中 */
+}
