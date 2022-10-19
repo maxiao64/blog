@@ -32,7 +32,7 @@ class LoginController extends Controller
         Log::info('GITHUB_INFO', [$user]);
         $loginUser = User::query()->updateOrCreate([
             'auth_type' => User::AUTH_TYPE_GITHUB,
-            'auth_id'   => $id,
+            'auth_id'   => $user->getId(),
         ],[
             'username' => $user->getName(),
             'avatar'   => $user->getAvatar(),
