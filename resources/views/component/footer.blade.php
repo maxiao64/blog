@@ -7,11 +7,6 @@
          <div class="row">
              <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                  <ul class="list-inline text-center">
-                     
- 
-                     
- 
-                     
                          <li>
                              <a href="https://github.com/klugjo/hexo-theme-clean-blog" target="_blank">
                                  <span class="fa-stack fa-lg">

@@ -616,7 +616,7 @@ pre .deletion {
   color: #dc322f;
 }
 
-.awesmoe-title {
+.awesome-title {
   font-size: 100px; /* 文字大点，效果更明显 */
   font-weight: bold; /* 文字粗点，这样效果更明显 */
   color: transparent; /* 设置文字填充颜色为透明，这样可以把背景显示出来 */
@@ -627,4 +627,17 @@ pre .deletion {
   background-repeat: repeat; /* 不断重复渲染背景图 */
   -webkit-background-clip: text; /* 将背景渲染到文本中（兼容性写法） */
   background-clip: text; /* 将背景渲染到文本中 */
+}
+
+.comment-textarea {
+  margin-bottom: 10px;
+}
+
+.comment-item {
+  margin: 10px 0;
+  /* border-bottom: 1px solid #808080; */
+}
+.comment-item span {
+  margin-left: 10px;
+  cursor: pointer;
 }

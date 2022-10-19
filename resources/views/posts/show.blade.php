@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-heading">
-                    <h1 class="awesmoe-title">{{ $post->title}}</h1>
+                    <h1 class="awesome-tiitle">{{ $post->title}}</h1>
                     <hr class="small">
                     <span class="subheading">Post On :{{ $post->created_at->format('Y-m-d')}}</span>
                 </div>
@@ -36,10 +36,35 @@
 			</div>
 
 			<!-- Comments -->
-
 			<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+				{{-- 发表评论 --}}
+				<div class="col-lg-6 col-md-6">
+					发表评论：
+				</div>
+				@if(Auth::check())
+					<div class="col-lg-6 col-md-6 text-right">
+						当前用户：{{ Auth::user()->username}}
+						
+					</div>
+				@endif
+				<div class="col-lg-12 col-md-12">
+					<form>
+						<textarea class="comment-textarea form-control" rows="3"></textarea>
+						<div class="text-right">
+							<button type="submit" class="btn btn-default">提交</button>
+						</div>
+					</form>
+				</div>
 
-
+				<div class="col-lg-6 col-md-6">
+					评论列表：
+				</div>
+				{{-- 评论列表 --}}
+				<div class="col-lg-12 col-md-12">
+					<div class="col-lg-12 col-md-2 text-left">
+						<p class="comment-item">马潇说：xxxxx<span class="fa fa-commenting-o" aria-hidden="true"></span></p>
+					</div>
+				</div>
 
 			</div>
 

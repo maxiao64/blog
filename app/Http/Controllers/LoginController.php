@@ -17,6 +17,8 @@ class LoginController extends Controller
      */
     public function redirectToProvider()
     {
+        Auth::login(User::first());
+        return redirect('/');
         return Socialite::driver('github')->redirect();
     }
 

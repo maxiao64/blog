@@ -26,6 +26,7 @@
     <link href="{{ URL::asset('static/css/all.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ URL::asset('static/css/css') }}" rel="stylesheet" type="text/css">
     <link href="{{ URL::asset('static/css/css(1)') }}" rel="stylesheet" type="text/css">
+    <link href="{{ URL::asset('static/font-awesome-4.7.0/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -71,7 +72,7 @@
                         </a>
                     </li>
                     
-                        @if(Auth::user())
+                        @if(Auth::check())
                         <li>
                             <a href="javascript:;">当前用户：{{Auth::user()->username}}</a>
                         </li>

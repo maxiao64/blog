@@ -20,7 +20,7 @@
 				@foreach($categories as $category)
 				<div class="post-preview">
 					<a href="{{ route('post.categoryPost',['name' => $category->name,'id' => $category->id]) }}">
-						<h1 class="post-title archive awesmoe-title">
+						<h1 class="post-title archive awesome-tiitle">
 							{{ $category->name}}
 						</h1>
 					</a>
