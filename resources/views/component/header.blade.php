@@ -70,16 +70,23 @@
                                 分类
                         </a>
                     </li>
-                    <li>
+                    
                         @if(Auth::user())
-                            <span>{{Auth::user()->name}}</span>
+                        <li>
+                            <a href="javascript:;">当前用户：{{Auth::user()->username}}</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('logout') }}">退出登录</a>
+                        </li>
                         @else 
-                            <a href="{{ route('login.github')}}">   
-                                登录
-                            </a>
+                            <li>
+                                <a href="{{ route('login.github')}}">   
+                                    登录
+                                </a>
+                            </li>
                         @endif
                         
-                    </li>
+                    {{-- </li> --}}
                     {{-- <li>
                         <a target="_blank" rel="noopener" href="https://github.com/klugjo/hexo-theme-clean-blog">    
                                 <i class="fa fa-github fa-stack-2x"></i>
