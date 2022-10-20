@@ -73,9 +73,8 @@ class Kernel extends HttpKernel
     {
         error_reporting(E_ALL);
         parent::bootstrap();
-        Log::info('START', [$this->app['request']->toArray()]);
-
         if(!$this->app['request']->is('admin/*')) {
+            Log::info('START', [$this->app['request']->toArray()]);
             DB::connection('mysql')->listen(function (QueryExecuted $event) {
                 list($command) = explode(' ', $event->sql);
                 Log::info(strtoupper($event->connectionName) . '_' . strtoupper($command), [$event->time, $event->sql,                                                                    $event->bindings]);
