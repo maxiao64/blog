@@ -38,7 +38,7 @@ $(document).ready(function(){
 
    $('.close-comment-to-user-btn').click(function() {
       $('.comment-to-user-box').hide();
-      $("input[name=to_uid]").val('');
+      $("input[name=to_uid]").val('0');
    });
 });
 

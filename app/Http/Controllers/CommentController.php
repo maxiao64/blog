@@ -25,7 +25,6 @@ class CommentController extends Controller
             $toUser = User::query()->find($params['to_uid']);
             $params['to_username'] = $toUser->username;
         }
-        dd($params);
 
         Comment::query()->create($params);
         return redirect()->route('post.show', ['id' => $params['post_id']])->with('notice', '评论成功');

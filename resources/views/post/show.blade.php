@@ -54,7 +54,7 @@
 				<div class="col-lg-12 col-md-12">
 					<form method="POST" action="{{ route('comment')}}">
 						{{ csrf_field() }}
-						<input type="hidden" name="to_uid" value="">
+						<input type="hidden" name="to_uid" value="0">
 						<input type="hidden" name="post_id" value="{{ $post->id }}">
 						<textarea name="content" class="comment-textarea form-control" rows="3"></textarea>
 						<div class="col-lg-6 col-md-6 col-xs-6 pull-left comment-to-user-box">对<span class="comment-to-username"></span>说：<span class="fa fa-close close-comment-to-user-btn"></span>

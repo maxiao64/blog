@@ -26,11 +26,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        error_reporting(E_ERROR);
-        DB::connection('mysql')->listen(function (QueryExecuted $event) {
-            list($command) = explode(' ', $event->sql);
-            Log::info(strtoupper($event->connectionName) . '_' . strtoupper($command), [$event->time, $event->sql,
-                                                                                        $event->bindings]);
-        });
+
     }
 }

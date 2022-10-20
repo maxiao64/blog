@@ -2,7 +2,9 @@
 
 namespace App\Http;
 
+use Illuminate\Database\Events\QueryExecuted;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 
 class Kernel extends HttpKernel
@@ -68,7 +70,14 @@ class Kernel extends HttpKernel
 
     public function bootstrap()
     {
+        error_reporting(E_ALL);
         parent::bootstrap();
         Log::info('START', [$this->app['request']->toArray()]);
+        
+        DB::connection('mysql')->listen(function (QueryExecuted $event) {
+            list($command) = explode(' ', $event->sql);
+            Log::info(strtoupper($event->connectionName) . '_' . strtoupper($command), [$event->time, $event->sql,
+                                                                                        $event->bindings]);
+        });
     }
 }
