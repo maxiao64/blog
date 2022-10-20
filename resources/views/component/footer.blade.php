@@ -42,11 +42,6 @@
  
  <!-- Gallery -->
  <script src="{{ URL::asset('static/js/featherlight.min.js') }}" type="text/javascript" charset="utf-8"></script>
- 
- <!-- Disqus Comments -->
- 
- 
- 
- 
- 
+ <script src="{{ URL::asset('static/js/my.js') }}" type="text/javascript" charset="utf-8"></script> 
+
  </body></html>

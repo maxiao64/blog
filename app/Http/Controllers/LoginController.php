@@ -10,6 +10,11 @@ use Socialite;
 
 class LoginController extends Controller
 {
+    public function login()
+    {
+        return redirect('/')->with('notice', '请先登录');
+    }
+    
     /**
      * 将用户重定向到 GitHub 的授权页面
      *
@@ -18,7 +23,7 @@ class LoginController extends Controller
     public function redirectToProvider()
     {
         Auth::login(User::first());
-        return redirect('/');
+        return redirect('/')->with('notice', '登录成功');
         return Socialite::driver('github')->redirect();
     }
 
@@ -32,7 +37,7 @@ class LoginController extends Controller
         $user = Socialite::driver('github')->stateless()->user();
 
         Log::info('GITHUB_INFO', [$user]);
-        $loginUser = User::query()->updateOrCreate([
+        $loginUser = User::query()->firstOrCreate([
             'auth_type' => User::AUTH_TYPE_GITHUB,
             'auth_id'   => $user->getId(),
         ],[
@@ -40,12 +45,12 @@ class LoginController extends Controller
             'avatar'   => $user->getAvatar(),
         ]);
         Auth::login($loginUser);
-        return redirect('/');
+        return redirect('/')->with('notice', '登录成功');
     }
 
     public function logout()
     {
         Auth::logout();
-        return redirect('/');
+        return redirect('/')->with('notice','退出成功');
     }
 }

@@ -38,31 +38,47 @@
 			<!-- Comments -->
 			<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 				{{-- 发表评论 --}}
-				<div class="col-lg-6 col-md-6">
+				<div class="col-lg-6 col-md-6 col-xs-6">
 					发表评论：
 				</div>
 				@if(Auth::check())
-					<div class="col-lg-6 col-md-6 text-right">
+					<div class="col-lg-6 col-md-6 col-xs-6 text-right">
 						当前用户：{{ Auth::user()->username}}
 						
 					</div>
+				@else 
+				<div class="col-lg-6 col-md-6 col-xs-6 text-right">
+					<a href="{{ route('login.github')}}">GITHUB登录</a>
+				</div>
 				@endif
 				<div class="col-lg-12 col-md-12">
-					<form>
-						<textarea class="comment-textarea form-control" rows="3"></textarea>
-						<div class="text-right">
+					<form method="POST" action="{{ route('comment')}}">
+						{{ csrf_field() }}
+						<input type="hidden" name="to_uid" value="">
+						<input type="hidden" name="post_id" value="{{ $post->id }}">
+						<textarea name="content" class="comment-textarea form-control" rows="3"></textarea>
+						<div class="col-lg-6 col-md-6 col-xs-6 pull-left comment-to-user-box">对<span class="comment-to-username"></span>说：<span class="fa fa-close close-comment-to-user-btn"></span>
+						</div>
+						<div class="col-lg-6 col-md-6 col-xs-6 pull-right text-right" style="padding-right: 0">
 							<button type="submit" class="btn btn-default">提交</button>
 						</div>
 					</form>
 				</div>
 
-				<div class="col-lg-6 col-md-6">
+				<div class="col-lg-6 col-md-6" style="clear: both">
 					评论列表：
 				</div>
 				{{-- 评论列表 --}}
 				<div class="col-lg-12 col-md-12">
 					<div class="col-lg-12 col-md-2 text-left">
-						<p class="comment-item">马潇说：xxxxx<span class="fa fa-commenting-o" aria-hidden="true"></span></p>
+						@foreach ($comments as $comment)
+						<p id="comment-{{ $comment->id}}" class="comment-item">{{$comment->created_at->format('Y-m-d')}} {{ $comment->from_username }}
+							@if($comment->to_uid)
+							对{{ $comment->to_username }}
+							@endif
+							说：{{$comment->content}} <span class="fa fa-commenting-o comment-to-user" data-username="{{ $comment->from_username }}"
+								data-uid="{{ $comment->from_uid }}" aria-hidden="true"></span></p>
+						@endforeach
 					</div>
 				</div>
 

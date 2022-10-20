@@ -18,8 +18,10 @@ class CreateCommentsTable extends Migration
             $table->integer('post_id');
             $table->text('content');
             $table->tinyInteger('status')->default(0)->comment('0:待审核，1审核通过');
-            $table->integer('from_uid')->comment('评论的创造者');
-            $table->integer('to_uid')->default(0)->comment('评论的目标用户id');
+            $table->integer('from_uid')->comment('评论的用户id');
+            $table->string('from_username')->comment('评论的用户姓名');
+            $table->integer('to_uid')->default(0)->comment('被评论的用户id');
+            $table->string('to_username')->default('')->comment('被评论的用户姓名');
             $table->timestamps();
         });
     }

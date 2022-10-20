@@ -99,6 +99,11 @@
     </div>
     <!-- /.container -->
 </nav>
+@if(session('notice'))
+<div class="notice">
+    {{ session('notice')}}
+</div>
+@endif
 
     <!-- Main Content -->
     <!-- Page Header -->

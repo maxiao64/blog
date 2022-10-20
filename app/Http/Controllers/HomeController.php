@@ -14,6 +14,6 @@ class HomeController extends Controller
             ->orderBy('id', 'desc')->simplePaginate(1);
         $title = '及时行乐';
         $subTitle = 'ss';
-        return view('posts.list', compact('posts', 'title','subTitle'));
+        return view('post.list', compact('posts', 'title','subTitle'));
     }
 }
