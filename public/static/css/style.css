@@ -652,6 +652,7 @@ pre .deletion {
 
 .notice{
   position: fixed;
+  z-index: 1000;
   left: 0;
   top: 10%;
   /* margin: 0 auto; */
