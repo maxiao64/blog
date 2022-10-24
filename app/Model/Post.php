@@ -1,14 +1,8 @@
 <?php
 
 namespace App\Model;
-
-use App\Traits\SerializeDate;
-use Illuminate\Database\Eloquent\Model;
-
-class Post extends Model
+class Post extends BaseModel
 {
-    use SerializeDate;
-
     protected $fillable = [
         'title',
         'body',

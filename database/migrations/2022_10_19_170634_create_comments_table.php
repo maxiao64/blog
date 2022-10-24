@@ -22,6 +22,7 @@ class CreateCommentsTable extends Migration
             $table->string('from_username')->comment('评论的用户姓名');
             $table->integer('to_uid')->default(0)->comment('被评论的用户id');
             $table->string('to_username')->default('')->comment('被评论的用户姓名');
+            $table->softDeletes('deleted_at', 0);
             $table->timestamps();
         });
     }

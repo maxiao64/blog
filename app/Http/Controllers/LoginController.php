@@ -22,8 +22,6 @@ class LoginController extends Controller
      */
     public function redirectToProvider()
     {
-        Auth::login(User::first());
-        return redirect('/')->with('notice', '登录成功');
         return Socialite::driver('github')->redirect();
     }
 

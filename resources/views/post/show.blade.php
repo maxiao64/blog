@@ -1,12 +1,11 @@
 @extends('layout')
 
-<header class="intro-header" style="background-image: url(&#39;/img/home-bg.jpg&#39;)">
+<header class="intro-header" style="background-image: url(&#39;@if(!empty($headerImage)){{ $headerImage}}@else{{ $settings['header_image']}}@endif&#39;)">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-heading">
                     <h1 class="awesome-tiitle">{{ $post->title}}</h1>
-                    <hr class="small">
                     <span class="subheading">Post On :{{ $post->created_at->format('Y-m-d')}}</span>
                 </div>
             </div>
@@ -36,7 +35,7 @@
 			</div>
 
 			<!-- Comments -->
-			<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+			<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1" style="margin-top:20px">
 				{{-- 发表评论 --}}
 				<div class="col-lg-6 col-md-6 col-xs-6">
 					发表评论：

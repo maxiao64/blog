@@ -55,7 +55,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="{{ route('/') }}">MMMX</a>
+            <a class="navbar-brand" href="{{ route('/') }}">{{ $settings['logo_title']}}</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -82,7 +82,7 @@
                         @else 
                             <li>
                                 <a href="{{ route('login.github')}}">   
-                                    登录
+                                    <span style="font-size: 14px" class="fa fa-github"></span>登录
                                 </a>
                             </li>
                         @endif

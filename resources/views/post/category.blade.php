@@ -1,6 +1,6 @@
 @extends('layout')
 
-<header class="intro-header" style="background-image: url(&#39;/img/home-bg.jpg&#39;)">
+<header class="intro-header" style="background-image: url(&#39;@if(!empty($headerImage)){{ $headerImage}}@else{{ $settings['header_image']}}@endif&#39;)">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">

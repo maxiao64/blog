@@ -2,13 +2,12 @@
 
 namespace App\Model;
 
-use Illuminate\Database\Eloquent\Model;
-use App\Traits\SerializeDate;
-
-class Category extends Model
+class Category extends BaseModel
 {
-    use SerializeDate;
-
+    protected $fillable = [
+        'name'
+    ];
+    
     public function posts()
     {
         return $this->hasMany(Post::class, 'id', 'cate_id');

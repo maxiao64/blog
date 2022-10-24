@@ -11,9 +11,7 @@ class HomeController extends Controller
     {
         $posts = Post::query()
             ->with('category')
-            ->orderBy('id', 'desc')->simplePaginate(1);
-        $title = '及时行乐';
-        $subTitle = 'ss';
-        return view('post.list', compact('posts', 'title','subTitle'));
+            ->orderBy('id', 'desc')->simplePaginate(10);
+        return view('post.list', compact('posts'));
     }
 }

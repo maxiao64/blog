@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCaregoriesTable extends Migration
+class AddHeaderImageToPostTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,8 @@ class CreateCaregoriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('categories', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->softDeletes('deleted_at', 0);
-            $table->timestamps();
+        Schema::table('posts', function (Blueprint $table) {
+            $table->string('header_image')->after('body');
         });
     }
 
@@ -28,6 +25,8 @@ class CreateCaregoriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('categories');
+        Schema::table('posts', function (Blueprint $table) {
+            $table->dropColumn('header_image');
+        });
     }
 }

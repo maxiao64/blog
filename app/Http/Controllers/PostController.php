@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Model\Category;
 use App\Model\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
@@ -12,7 +13,9 @@ class PostController extends Controller
     {
         $post = Post::query()->with('category')->findOrFail($id);
         $comments = $post->comments()->orderBy('id', 'desc')->get();
-        return view('post.show', compact('post', 'comments'));
+        $headerImage = $post->header_image ? 
+            Storage::disk('admin')->url($post->header_image) : '';
+        return view('post.show', compact('post', 'comments','headerImage'));
     }
 
     public function categories()
@@ -26,9 +29,9 @@ class PostController extends Controller
         $category = Category::query()->findOrFail($id);
         $posts = Post::query()
             ->where('cate_id', $category->id)
-            ->orderBy('id', 'desc')->simplePaginate(1);
+            ->orderBy('id', 'desc')->simplePaginate(10);
         $title = $category->name;
         
-        return view('post.list', compact('posts','title'));
+        return view('post.list', compact('posts', 'title'));
     }
 }

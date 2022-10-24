@@ -1,16 +1,21 @@
 @extends('layout')
 
-<header class="intro-header" style="background-image: url(&#39;/img/home-bg.jpg&#39;)">
+<header class="intro-header" style="background-image: url(&#39;@if(!empty($headerImage)){{ $headerImage}}@else{{ $settings['header_image']}}@endif&#39;)">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="site-heading ">
-                    <h1 class="awesome-tiitle">
-                        {{ $title }}
+                    <h1>
+                        @if(!empty($title))
+                         {{ $title }}
+                        @else 
+                        {{ $settings['title']}}
+                        @endif
                     </h1>
                     @if(!empty($subTitle))
-                        <hr class="small">
                         <span class="subheading">{{$subTitle}}</span>
+                    @else 
+                    {{ $settings['sub_title']}}
                     @endif
                     
                 </div>

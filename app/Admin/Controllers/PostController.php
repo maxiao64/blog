@@ -26,10 +26,12 @@ class PostController extends AdminController
     protected function grid()
     {
         $grid = new Grid(new Post());
+        $grid->model()->orderBy('id', 'desc');
         $grid->column('id', __('Id'));
         $grid->column('title', __('标题'))->expand(function ($model) {
             return $model->body;
         });
+        $grid->column('header_image', __('封面图'))->image();
         $grid->column('category.name', __('分类'));
         $grid->column('created_at', __('创建时间'));
         return $grid;
@@ -48,6 +50,7 @@ class PostController extends AdminController
         $show->field('id', __('Id'));
         $show->field('title', __('标题'));
         $show->field('body', __('内容'));
+        $show->header_image()->image();
         $show->category('分类', function ($author) {
             $author->setResource('/admin/categories');
             $author->id();
@@ -68,6 +71,7 @@ class PostController extends AdminController
         $form = new Form(new Post());
         $form->text('title');
         $form->simditor('body');
+        $form->image('header_image', '封面图')->uniqueName();
         $form->select('cate_id')->options(Category::query()->get()->pluck('name', 'id'));
         return $form;
     }
