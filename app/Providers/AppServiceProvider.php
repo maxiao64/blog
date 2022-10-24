@@ -29,10 +29,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $links = Link::query()->orderBy('id', 'asc')->get()->toArray();
-        $webSettings = WebSetting::query()->get()->pluck('value', 'key')->toArray();
-
-        View::share('links', $links);
-        View::share('settings', $webSettings);
+        
     }
 }
