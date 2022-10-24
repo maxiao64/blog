@@ -71,7 +71,7 @@ class PostController extends AdminController
         $form = new Form(new Post());
         $form->text('title');
         $form->simditor('body');
-        $form->image('header_image', '封面图')->uniqueName();
+        $form->image('header_image', '封面图')->removable()->uniqueName();
         $form->select('cate_id')->options(Category::query()->get()->pluck('name', 'id'));
         return $form;
     }

@@ -14,7 +14,7 @@ class AddHeaderImageToPostTable extends Migration
     public function up()
     {
         Schema::table('posts', function (Blueprint $table) {
-            $table->string('header_image')->after('body');
+            $table->string('header_image')->nullable()->after('body');
         });
     }
 

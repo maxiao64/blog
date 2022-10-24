@@ -11,7 +11,7 @@ class DataSeeder extends Seeder
      */
     public function run()
     {
-        // factory(App\Model\Post::class, 50)->create();
+        factory(App\Model\Post::class, 50)->create();
         factory(App\Model\User::class, 10)->create();
     }
 }
