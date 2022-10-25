@@ -1,5 +1,6 @@
 <?php
 
+use App\Admin\Controllers\Setting;
 use Illuminate\Routing\Router;
 
 Admin::routes();
@@ -19,4 +20,12 @@ Route::group([
     $router->resource('categories', CategoryController::class);
     $router->resource('links', LinkController::class);
     $router->resource('web-settings', WebSettingController::class);
+});
+
+Route::group([
+    'prefix'        => config('admin.route.prefix'),
+    'middleware'    => config('admin.route.middleware'),
+    'as'            => config('admin.route.prefix') . '.',
+], function (Router $router) {
+    $router->get('/setting', Setting::class);
 });

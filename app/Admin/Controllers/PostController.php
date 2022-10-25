@@ -32,6 +32,11 @@ class PostController extends AdminController
             return $model->body;
         });
         $grid->column('header_image', __('封面图'))->image();
+        // 添加不存在的字段
+        $grid->column('文章详情')->display(function () {
+            return '<a href="'. route('post.show', ['id' => $this->id])  .'">链接</a>';
+        });
+        
         $grid->column('category.name', __('分类'));
         $grid->column('created_at', __('创建时间'));
         return $grid;

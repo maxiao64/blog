@@ -83,7 +83,7 @@ class Kernel extends HttpKernel
                 Log::info(strtoupper($event->connectionName) . '_' . strtoupper($command), [$event->time, $event->sql,                                                                    $event->bindings]);
             });
         }
-        $links = Link::query()->orderBy('id', 'asc')->get()->toArray();
+        $links = Link::query()->orderBy('order', 'asc')->get()->toArray();
         $webSettings = WebSetting::query()->get()->pluck('value', 'key')->toArray();
 
         View::share('links', $links);

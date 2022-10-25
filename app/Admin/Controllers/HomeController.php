@@ -2,13 +2,14 @@
 
 namespace App\Admin\Controllers;
 
+use App\Admin\Forms\Setting;
 use App\Http\Controllers\Controller;
 use Encore\Admin\Controllers\Dashboard;
 use Encore\Admin\Layout\Column;
-use Encore\Admin\Layout\Content;
 use Encore\Admin\Layout\Row;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Encore\Admin\Layout\Content;
 
 class HomeController extends Controller
 {
