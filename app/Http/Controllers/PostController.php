@@ -20,7 +20,7 @@ class PostController extends Controller
 
     public function categories()
     {
-        $categories = Category::query()->get();
+        $categories = Category::query()->with('posts')->get();
         return view('post.category', compact('categories'));
     }
 

@@ -21,7 +21,7 @@
 				<div class="post-preview">
 					<a href="{{ route('post.categoryPost',['name' => $category->name,'id' => $category->id]) }}">
 						<h1 class="post-title archive awesome-tiitle">
-							{{ $category->name}}
+							{{ $category->name}}({{ $category->posts->count()}})
 						</h1>
 					</a>
 				</div>

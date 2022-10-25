@@ -10,6 +10,6 @@ class Category extends BaseModel
     
     public function posts()
     {
-        return $this->hasMany(Post::class, 'id', 'cate_id');
+        return $this->hasMany(Post::class, 'cate_id', 'id');
     }
 }
