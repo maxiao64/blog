@@ -669,3 +669,7 @@ pre .deletion {
 .comment-to-user-box {
   display: none;
 }
+
+.simditor-image-loading {
+  background: rgba(0,0,0,0.5);
+}
