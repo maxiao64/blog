@@ -5,8 +5,6 @@ namespace App\Admin\Controllers;
 use App\Model\WebSetting;
 use Encore\Admin\Widgets\Form;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Storage;
 
 class Setting extends Form
 {

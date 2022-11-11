@@ -19,6 +19,14 @@ Route::group([
     $router->resource('posts', PostController::class);
     $router->resource('categories', CategoryController::class);
     $router->resource('links', LinkController::class);
-    $router->resource('web-settings', WebSettingController::class);
     $router->resource('comments', CommentController::class);
 });
+
+Route::group([
+    'prefix'        => config('admin.route.prefix'),
+    'middleware'    => config('admin.route.middleware'),
+    'as'            => config('admin.route.prefix') . '.',
+], function (Router $router) {
+    $router->get('settings', Setting::class);
+});
+
