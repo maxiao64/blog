@@ -60,7 +60,7 @@ class FillSystemMenuToAdminMenuTable extends Migration
                 'order' => 6,
                 'title' => '网站设置',
                 'icon'  => 'fa-gear',
-                'uri'   => 'setting',
+                'uri'   => 'settings',
                 'permission' => null,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
