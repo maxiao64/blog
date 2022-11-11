@@ -66,7 +66,7 @@ class LinkController extends AdminController
 
         $form->text('name', '网站名称');
         $form->url('link', '🔗');
-        $form->number('order', '排序（升序）');
+        $form->number('order', '排序（升序）')->default(0);
         return $form;
     }
 }

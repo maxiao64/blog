@@ -10,6 +10,7 @@ use Illuminate\Foundation\Http\Kernel as HttpKernel;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Storage;
 
 class Kernel extends HttpKernel
 {
@@ -85,7 +86,7 @@ class Kernel extends HttpKernel
         }
         $links = Link::query()->orderBy('order', 'asc')->get()->toArray();
         $webSettings = WebSetting::query()->get()->pluck('value', 'key')->toArray();
-
+        $webSettings['header_image'] = Storage::url($webSettings['header_image']);
         View::share('links', $links);
         View::share('settings', $webSettings);
         
