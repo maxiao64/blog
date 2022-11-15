@@ -50,7 +50,7 @@ class HomeController extends Controller
     {
         // dd(config('filesystems.disks.qiniu.access_key'));
         $qnConfig = new Config();
-        $qnConfig->useHTTPS = env('IS_HTTPS_APP');
+        $qnConfig->useHTTPS = env('ADMIN_HTTPS');
         list($uphost, $error) = $qnConfig->getUpHostV2(config('filesystems.disks.qiniu.access_key') , config('filesystems.disks.qiniu.bucket'));
         if($error) {
             return [];
