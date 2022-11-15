@@ -50,13 +50,14 @@ class HomeController extends Controller
     {
         // dd(config('filesystems.disks.qiniu.access_key'));
         $qnConfig = new Config();
+        $qnConfig->useHTTPS = env('IS_HTTPS_APP');
         list($uphost, $error) = $qnConfig->getUpHostV2(config('filesystems.disks.qiniu.access_key') , config('filesystems.disks.qiniu.bucket'));
         if($error) {
             return [];
         }
         return [
             'uphost' => $uphost,
-            'domain' => 'http://image.mmmx17.cn',
+            'domain' => config('filesystem.disks.qiniu.domains.default'),
             'uptoken' => Storage::disk('qiniu')->getAdapter()->uploadToken()
         ];
     }

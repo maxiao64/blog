@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'default' => env('FILESYSTEM_DRIVER', 'admin'),
+    'default' => env('FILESYSTEM_DRIVER', 'qiniu'),
 
     /*
     |--------------------------------------------------------------------------
@@ -73,7 +73,7 @@ return [
         'qiniu' => [
             'driver'  => 'qiniu',
             'domains' => [
-                'default'   => 'rldbe7ma9.hn-bkt.clouddn.com', //你的七牛域名
+                'default'   => 'http://image.mmmx17.cn', //你的七牛域名
                 'https'     => 'image.mmmx17.cn',         //你的HTTPS域名
                 'custom'    => 'static.abc.com',                //Useless 没啥用，请直接使用上面的 default 项
              ],
