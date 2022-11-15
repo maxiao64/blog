@@ -415,7 +415,7 @@ return [
             // Editor configuration
             'config' => [
                 'upload' => [
-                    'url' => '/' . env('ADMIN_ROUTE_PREFIX') . '/api/upload', # example api route: admin/api/upload
+                    'qnTokenUrl' => '/' . env('ADMIN_ROUTE_PREFIX') . '/api/getQnToken',
                     'fileKey' => 'upload_file',
                     'connectionCount' => 3,
                     'leaveConfirm' => 'Uploading is in progress, are you sure to leave this page?'

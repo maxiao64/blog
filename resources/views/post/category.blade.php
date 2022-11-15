@@ -1,6 +1,6 @@
 @extends('layout')
 
-<header class="intro-header" style="background-image: url(&#39;@if(!empty($headerImage)){{ $headerImage}}@else{{ $settings['header_image']}}@endif&#39;)">
+<header class="intro-header" style="background: @if(!empty($headerImage)) url(&#39;{{ $headerImage}}&#39;)@else linear-gradient(to bottom, #fb3664 0%, #4af5db 100%)@endif">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">

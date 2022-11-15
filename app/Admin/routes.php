@@ -14,6 +14,7 @@ Route::group([
 
     $router->get('/', 'HomeController@index')->name('home');
     $router->post('/api/upload', 'HomeController@upload')->name('upload');
+    $router->get('/api/getQnToken', 'HomeController@getQnToken')->name('upload');
 
     $router->resource('users', UserController::class);
     $router->resource('posts', PostController::class);

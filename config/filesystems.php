@@ -70,6 +70,20 @@ return [
             'url'        => env('APP_URL').'/storage',
             'visibility' => 'public',
         ],
+        'qiniu' => [
+            'driver'  => 'qiniu',
+            'domains' => [
+                'default'   => 'rldbe7ma9.hn-bkt.clouddn.com', //你的七牛域名
+                'https'     => 'image.mmmx17.cn',         //你的HTTPS域名
+                'custom'    => 'static.abc.com',                //Useless 没啥用，请直接使用上面的 default 项
+             ],
+            'access_key'=> env('QINIU_AK_KEY'),  //AccessKey
+            'secret_key'=> env('QINIU_SK_KEY'),  //SecretKey
+            'bucket'    => 'mmmx17cn',  //Bucket名字
+            'notify_url'=> '',  //持久化处理回调地址
+            'access'    => 'private',  //空间访问控制 public 或 private
+            'hotlink_prevention_key' => null, // CDN 时间戳防盗链的 key。 设置为 null 则不启用本功能。
+        ],
     ],
 
     /*

@@ -10,6 +10,7 @@ use Encore\Admin\Layout\Row;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Encore\Admin\Layout\Content;
+use Qiniu\Config;
 
 class HomeController extends Controller
 {
@@ -42,6 +43,21 @@ class HomeController extends Controller
         return [
             'success' => true,
             'file_path' => Storage::url($path),
+        ];
+    }
+
+    public function getQnToken()
+    {
+        // dd(config('filesystems.disks.qiniu.access_key'));
+        $qnConfig = new Config();
+        list($uphost, $error) = $qnConfig->getUpHostV2(config('filesystems.disks.qiniu.access_key') , config('filesystems.disks.qiniu.bucket'));
+        if($error) {
+            return [];
+        }
+        return [
+            'uphost' => $uphost,
+            'domain' => 'http://image.mmmx17.cn',
+            'uptoken' => Storage::disk('qiniu')->getAdapter()->uploadToken()
         ];
     }
 }
