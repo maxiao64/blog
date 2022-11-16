@@ -1,5 +1,8 @@
 @extends('layout')
 
+@section('styles')
+<link  href="{{ URL::asset('static/css/viewer.min.css') }}" rel="stylesheet">
+@endsection
 <header class="intro-header" style="background: @if(!empty($headerImage)) url(&#39;{{ $headerImage}}&#39;)@else linear-gradient(to bottom, #fb3664 0%, #4af5db 100%)@endif">
     <div class="container">
         <div class="row">
@@ -30,7 +33,7 @@
 			</div>
 
 			<!-- Post Main Content -->
-			<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+			<div id="post-content" class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 {!! $post->body !!}
 			</div>
 
@@ -88,3 +91,6 @@
 </article>
 @endsection
 
+@section('scripts')
+<script src="{{ URL::asset('static/js/viewer.min.js') }}"></script>
+@endsection

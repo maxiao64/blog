@@ -35,7 +35,7 @@
     <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <!-- Gallery -->
+    @yield('styles')
     <link href="{{ URL::asset('static/css/featherlight.min.css') }}" type="text/css" rel="stylesheet">
 <meta name="generator" content="Hexo 5.4.0">
 </head>

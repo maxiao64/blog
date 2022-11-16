@@ -43,3 +43,6 @@ $(document).ready(function(){
 });
 
 
+const viewer = new Viewer(document.getElementById('post-content'), {
+   
+})
