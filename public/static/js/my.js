@@ -40,9 +40,5 @@ $(document).ready(function(){
       $('.comment-to-user-box').hide();
       $("input[name=to_uid]").val('0');
    });
+   const viewer = new Viewer(document.getElementById('post-content'), {});
 });
-
-
-const viewer = new Viewer(document.getElementById('post-content'), {
-   
-})
